@@ -12,20 +12,47 @@ window.addEventListener("load", function(){
       let fuelCheck = Number(fuelLevelInput.value);
       let cargoMassInput = document.querySelector("input[name=cargoMass]");
       let cargoCheck = Number(cargoMassInput.value);
+      let itemStatusNode = document.getElementById("itemStatus");
+      let pilotStatusNode = document.getElementById("pilotStatus");
+      let copilotStatusNode = document.getElementById("copilotStatus");
+      let fuelStatusNode = document.getElementById("fuelStatus");
+      let cargoStatusNode = document.getElementById("cargoStatus");
+      let launchStatusNode = document.getElementById("launchStatus");
+      
 
       if (pilotNameInput.value === "" || coPilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value  === ""){
             alert("All fields are required!");
 
       } else if (isNaN(fuelCheck) === true || isNaN(cargoCheck) === true || isNaN(pilotCheck) === false || isNaN(copilotCheck) === false)  {
             alert("Please enter valid data types.");
-
       
+         } else {
+            itemStatusNode.style.visibility = "visible";
+            pilotStatusNode.innerHTML = `Pilot Name: ${pilotNameInput.value}`;
+            copilotStatusNode.innerHTML = `Co-pilot Name: ${coPilotNameInput.value}`;
+               if (fuelCheck < 10000) {
+                  fuelStatusNode.innerHTML = "Not enough fuel for the journey.";
+                  launchStatusNode.innerHTML = "Shuttle Not Ready For Launch";
+                  launchStatusNode.style.color = "red";
+               } else if (fuelCheck >= 10000) {
+                  fuelStatusNode.innerHTML = `Fuel Level Check Passed`;
+                  
+               } if (cargoCheck <= 10000){
+                  cargoStatusNode.innerHTML = `Cargo Mass Check Passed`
+                  launchStatusNode.innerHTML = "Shuttle Ready For Launch";
+                  launchStatusNode.style.color = "Green";
+
+               } else {
+                  cargoStatusNode.innerHTML = `Too Much Mass For Takeoff`
+                  launchStatusNode.innerHTML = "Shuttle Not Ready For Launch";
+                  launchStatusNode.style.color = "red";
+
+               }
          };
        
+      });
 
-      
    });
-});
 
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 <h2>Mission Destination</h2>
