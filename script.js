@@ -1,25 +1,30 @@
 window.addEventListener("load", function(){
    let form = document.getElementById("launchForm");
-   let pilotNameInput = document.querySelector("input[name=pilotName]").value;
-   let coPilotNameInput = document.querySelector("input[name=copilotName]").value;
-   let fuelLevelInput = document.querySelector("input[name=fuelLevel]").value;
-   let cargoMassInput = document.querySelector("input[name=cargoMass]").value;
+   
    
    form.addEventListener("submit", function(event){
-      
-      
-      
-
-
-
-
-      
-      
-      
       event.preventDefault()
+      let pilotNameInput = document.querySelector("input[name=pilotName]");
+      let pilotCheck = Number(pilotNameInput.value);
+      let coPilotNameInput = document.querySelector("input[name=copilotName]");
+      let copilotCheck = Number(coPilotNameInput);
+      let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
+      let fuelCheck = Number(fuelLevelInput.value);
+      let cargoMassInput = document.querySelector("input[name=cargoMass]");
+      let cargoCheck = Number(cargoMassInput.value);
 
+      if (pilotNameInput.value === "" || coPilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value  === ""){
+            alert("All fields are required!");
 
-      });
+      } else if (isNaN(fuelCheck) === true || isNaN(cargoCheck) === true || isNaN(pilotCheck) === false || isNaN(copilotCheck) === false)  {
+            alert("Please enter valid data types.");
+
+      
+         };
+       
+
+      
+   });
 });
 
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
