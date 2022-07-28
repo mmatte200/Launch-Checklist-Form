@@ -38,7 +38,7 @@ window.addEventListener("load", function(){
       let fuelStatusNode = document.getElementById("fuelStatus");
       let cargoStatusNode = document.getElementById("cargoStatus");
       let launchStatusNode = document.getElementById("launchStatus");
-    
+   
 
       if (pilotNameInput.value === "" || coPilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value  === ""){
             alert("All fields are required!");
@@ -62,13 +62,13 @@ window.addEventListener("load", function(){
                   launchStatusNode.style.color = "red";
                   cargoStatusNode.innerHTML = `Cargo Mass Check Passed`;
                }  else if (cargoCheck > 10000){
-                  fuelStatusNode.innerHTML = "Fuel good";
+                  fuelStatusNode.innerHTML = "Fuel Check Passed";
                   cargoStatusNode.innerHTML = `Too much cargo mass for takeoff`
                   launchStatusNode.innerHTML = "Shuttle not ready for launch";
                   launchStatusNode.style.color = "Red";
                }  else {
-                  fuelStatusNode.innerHTML = "Fuel good"
-                  cargoStatusNode.innerHTML = "Cargo mass good"
+                  fuelStatusNode.innerHTML = "Fuel Check Passed"
+                  cargoStatusNode.innerHTML = "Cargo Mass Check Passed"
                   launchStatusNode.innerHTML = "Shuttle ready for launch";
                   launchStatusNode.style.color = "Green";
 
